@@ -15,6 +15,10 @@ from langchain.chains import RetrievalQA
 from constants import CHROMA_SETTINGS
 from streamlit_chat import message
 
+os.mkdir('db')
+os.mkdir('docs')
+os.mkdir('models')
+
 st.set_page_config(layout="wide")
 
 device = torch.device('cpu')
@@ -142,5 +146,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+    os.rmdir('db')
+    os.rmdir('docs')
+    os.rmdir('models')
 
 
