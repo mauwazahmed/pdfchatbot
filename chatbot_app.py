@@ -12,7 +12,7 @@ from langchain.embeddings import SentenceTransformerEmbeddings
 from langchain.vectorstores import Chroma 
 from langchain.llms import HuggingFacePipeline
 from langchain.chains import RetrievalQA 
-from constants import CHROMA_SETTINGS
+from constants import Settings
 from streamlit_chat import message
 
 os.mkdir('db')
@@ -47,7 +47,7 @@ def data_ingestion():
     #create embeddings here
     embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
     #create vector store here
-    db = Chroma.from_documents(texts, embeddings, persist_directory=persist_directory, client_settings=CHROMA_SETTINGS)
+    db = Chroma.from_documents(texts, embeddings, persist_directory=persist_directory, client_settings=Settings())
     db.persist()
     db=None 
 
