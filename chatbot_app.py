@@ -12,7 +12,7 @@ from langchain.embeddings import SentenceTransformerEmbeddings
 from langchain.vectorstores import Chroma 
 from langchain.llms import HuggingFacePipeline
 from langchain.chains import RetrievalQA 
-from constants import Settings
+# from constants import Settings
 from streamlit_chat import message
 
 os.mkdir('db')
@@ -70,7 +70,7 @@ def llm_pipeline():
 def qa_llm():
     llm = llm_pipeline()
     embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
-    db = Chroma(persist_directory="db", embedding_function = embeddings, client_settings=CHROMA_SETTINGS)
+    db = Chroma(persist_directory="db", embedding_function = embeddings)
     retriever = db.as_retriever()
     qa = RetrievalQA.from_chain_type(
         llm = llm,
