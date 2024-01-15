@@ -45,7 +45,7 @@ def data_ingestion():
     #create embeddings here
     embeddings = SentenceTransformerEmbeddings(model_name="all-MiniLM-L6-v2")
     #create vector store here
-    db = Chroma.from_documents(texts, embeddings, persist_directory=persist_directory, client_settings=Settings())
+    db = Chroma.from_documents(texts, embeddings, persist_directory=persist_directory)
     db.persist()
     db=None 
 
