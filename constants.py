@@ -8,5 +8,3 @@ class Settings(BaseSettings):
         persist_directory='db',
         anonymized_telemetry=False
     )
-
-Settings()
