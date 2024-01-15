@@ -15,11 +15,16 @@ from langchain.chains import RetrievalQA
 # from constants import Settings
 from streamlit_chat import message
 
-
+try:
+    os.mkdir('db')
+    os.mkdir('docs')
+    os.mkdir('models')
+except:
+    pass
 
 st.set_page_config(layout="wide")
 
-device = torch.device('cpu')
+device = torch.device('gpu')
 
 checkpoint = "MBZUAI/LaMini-T5-738M"
 print(f"Checkpoint path: {checkpoint}")  # Add this line for debugging
