@@ -24,7 +24,7 @@ except:
 
 st.set_page_config(layout="wide")
 
-device = torch.device('gpu')
+device = torch.device('cuda')
 
 checkpoint = "MBZUAI/LaMini-T5-738M"
 print(f"Checkpoint path: {checkpoint}")  # Add this line for debugging
